@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0hov4kmu2afy"]
+[gd_scene load_steps=8 format=3 uid="uid://c0hov4kmu2afy"]
 
 [ext_resource type="Texture2D" uid="uid://cv3v30bs4ey47" path="res://assets/sprites/knight.png" id="1_bty8t"]
 
@@ -34,13 +34,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_oklfp")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"Idle",
+"speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_im0a4"]
+radius = 6.0
+
+[node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_o8p14")
+animation = &"Idle"
+autoplay = "Idle"
 frame = 3
-frame_progress = 0.676981
+frame_progress = 0.878971
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_im0a4")
